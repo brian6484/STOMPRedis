@@ -1,1 +1,28 @@
+server:
+  port: ${SERVER_PORT:8080}
 
+spring:
+  application:
+    name: gabozago
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME}
+    username: ${USER_NAME}
+    password: ${DATABASE_NAME}
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    open-in-view: true
+
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
