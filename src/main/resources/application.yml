@@ -9,7 +9,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME}
     username: ${USER_NAME}
-    password: ${DATABASE_NAME}
+    password: ${DATABASE_PASSWORD}
 
   jpa:
     hibernate:
