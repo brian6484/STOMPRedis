@@ -1,4 +1,7 @@
-package com.gabozago.domain;
+package com.gabozago.domain.chat;
+
+import com.gabozago.domain.User;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -9,7 +12,10 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "CHAT_MESSAGE")
+@Getter
+@NoArgsConstructor
 public class ChatMessage {
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long messageId;
@@ -28,5 +34,20 @@ public class ChatMessage {
     @Column(nullable = false)
     private LocalDateTime sendTime;
 
+    public void setSender(User sender){
+        this.sender = sender;
+    }
 
+    public void setChatRoom(ChatRoom chatRoom){
+        this.chatRoom = chatRoom;
+    }
+
+    @Builder
+    public ChatMessage(Long messageId, ChatRoom chatRoom, User sender, String content, LocalDateTime sendTime) {
+        this.messageId = messageId;
+        this.chatRoom = chatRoom;
+        this.sender = sender;
+        this.content = content;
+        this.sendTime = sendTime;
+    }
 }
