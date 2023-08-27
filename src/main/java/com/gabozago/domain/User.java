@@ -1,9 +1,12 @@
 package com.gabozago.domain;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "USERS")
+@Builder
 public class User extends BaseEntity{
 
     @Id
