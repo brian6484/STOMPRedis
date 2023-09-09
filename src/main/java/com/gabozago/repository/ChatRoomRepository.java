@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.*;
 
 public interface ChatRoomRepository extends JpaRepository<ChatRoom,Long> {
-    Optional<ChatRoom> findBySenderAndReceiver(User sender, User receiver);
+    Optional<ChatRoom> findBySenderOrReceiver(User sender, User receiver);
 
-    Page<ChatRoom> findAllBySenderAndReceiver(Pageable pageable, User sender, User receiver);
+    Page<ChatRoom> findAllBySenderOrReceiver(Pageable pageable, User sender, User receiver);
 }
