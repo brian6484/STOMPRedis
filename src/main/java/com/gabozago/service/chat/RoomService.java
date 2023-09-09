@@ -71,6 +71,7 @@ public class RoomService {
         return chatRoomRepository.findAllBySenderOrReceiver(pageable, user, user);
     }
 
+    //find ONE 1 chatroom
     public ChatRoom getChatRoomById(Long roomId){
         return chatRoomRepository.findById(roomId)
                 .orElseThrow(() -> new IllegalArgumentException("room not found with " + roomId));
